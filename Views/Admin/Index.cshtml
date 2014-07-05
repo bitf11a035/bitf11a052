@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RPOJECTEAD.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/MainLayout1.cshtml";
+}
+
+@using (Html.BeginForm(FormMethod.Post))
+     {
+ <p style= "margin-left:30px; font-family:Arial; color:#000">  You Can Add New Product By Clicking Add_New link</p>
+        <div style= "margin-left:30px; font-family:Arial; color:#000">@Html.ActionLink("AddProduct", "Create")</div><br/>
+  <br/><br/><br/>
+<p style= "margin-left:30px; font-family:Arial; color:#000">  You Can Update And Delete product by Clicking Edit and Delete link</p>
+foreach(var item in Model) {
+     
+        <div style="border:1px solid #BBBBBB;height: 250px;width: 200px;float: left;margin-left: 7px;margin-top: 10px;"> 
+                <a ><img src="~/Uploads/@item.ImagePath"  alt="no img" height="120" width="100"/></a>
+                <div style="padding-top: 4px;padding-left: 12px;font-family: Calibri;font-size: 18px">  
+                    <span><a>ProductId: @item.PId</a></span><br />
+                    <span><a>Name: @item.Name</a></span><br />
+                    <span style="margin-left: 10px;color: green;font-size: 16px">Rs. @item.Amount </span>
+                    <br/><span style="margin-left: 10px;color: green;font-size: 16px">Quantity: @item.Quantity </span>
+                    <p style= "margin-left:30px; font-family:Arial; color:#000"> @Html.ActionLink("Edit", "Edit", new { id=item.PId }) |
+                                 @Html.ActionLink("Delete", "Delete", new { id=item.PId })</p>
+                </div>
+           </div>                                                
+
+}
+
+}  
+ <br /><br /><br /><br />  
+

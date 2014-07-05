@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "WoMen";
+    Layout = "~/Views/_MainLayout.cshtml";
+}
+
+@model List<RPOJECTEAD.Models.Product>
+
+ @section tabs{
+     <div id="menu">
+		<ul>
+			<li><a href="/Customer/Index">Home</a></li>
+            <li><a href="/Customer/ViewCart">ViewCart</a></li>
+            <li><a href="/Customer/CheckOut">CheckOut</a></li>
+			<li><a href="/Customer/About">About Us</a></li>
+			<li><a href="/Customer/Contact">Contact Us</a></li>
+            <li><a href="/Customer/Gallery">Gallery</a></li>
+            <li><a href="/Account/LogOut">LogOut</a></li>
+
+		</ul>
+	</div>
+ }
+@*@foreach (var n in ViewBag.X)
+{
+     <div style="border:1px solid #BBBBBB;height: 250px;width: 150px;float: left;margin-left: 7px;margin-top: 10px;"> 
+                <a ><img src="~/Uploads/@n.ImagePath"  alt="no img" height="120" width="100"/></a>
+                <div style="padding-top: 4px;padding-left: 12px;font-family: Calibri;font-size: 18px">  
+                    <span><a>@n.Name</a></span>
+                    <span style="margin-left: 10px;color: green;font-size: 16px">Rs. @n.Amount </span>
+                     
+                    @using (Html.BeginForm())
+                    { 
+                     <p>Enter Quantity: <input type="text" name="quantity" id="quantity" /></p>
+                     @Html.ActionLink("AddToCart", "Add", new { id=n.PId  })
+                    }
+                </div>
+           </div>
+}*@
+
+@foreach (var n in Model)
+{
+     <div style="border:1px solid #BBBBBB;height: 280px;width: 150px;float: left;margin-left: 7px;margin-top: 10px;"> 
+                <a ><img src="~/Uploads/@n.ImagePath"  alt="no img" height="120" width="100"/></a>
+                <div style="padding-top: 4px;padding-left: 12px;font-family: Calibri;font-size: 18px">  
+                    <span><a>@n.Name</a></span>
+                    <span style="margin-left: 10px;color: green;font-size: 16px">Rs. @n.Amount </span>
+                 
+                    @using (Html.BeginForm("Add", "Customer", FormMethod.Post))
+                    {
+                     @Html.Hidden("id", @n.PId);
+                        <p>Enter Quantity: <input type="text" name="quantity" id="quantity" /></p>
+                    <input type="submit" value="AddtoCart" style="margin-left: 10px;color: green;font-size: 16px"></input>
+                    }
+                </div>
+           </div>
+}
+
+@section search{
+ <div id="d2" style="float: right;border: 1px solid #BBBBBB;height:540px;width: 38%">
+        
+        <div style="height: 35px">
+            <div style="float: left;margin-left: 100px;margin-top: 5px">
+                <form action="~/Search/Index" method="post" style="color: white;font-family: Verdana;font-size: 16px">
+
+                    <input id="searchTerm" name="searchTerm" type="text"/>
+                    <input value="Search" type="submit"/>
+
+                </form>  
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 20px;margin-left: 50px">Welcome to CReAtive Gift Shop</h3>
+
+        <p style="margin-left: 100px">Every thing easily accessible</p>
+        <p style="margin-top: 20px"></p>
+        <a style="margin-left: 100px;font-family: Calibri;font-size: 20px;color: black;"><img src="/Images/myaccount.jpg" height="180px" width="180px"/></a>
+    </div>
+ } 

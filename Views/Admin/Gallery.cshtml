@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/MainLayout1.cshtml";
+}
+
+
+@foreach(var x in ViewBag.X)
+{
+ 
+<a class="fancybox" href="~/Uploads/@x.ImagePath" alt="">
+      <img src="~/Uploads/@x.ImagePath" alt="" style="height: 100px;width: 100px;margin-left: 30px"/></a>
+}
+
+     
+<script type='text/javascript'>
+    $(document).ready(function () {
+        /* This is basic - uses default settings */
+        $("a#single_image").fancybox();
+
+        /* Using custom settings */
+        $("a#inline").fancybox({
+            'hideOnContentClick': true
+        });
+
+        /* Apply fancybox to multiple items */
+        $("a.group").fancybox({
+            'transitionIn': 'elastic',
+            'transitionOut': 'elastic',
+            'speedIn': 600,
+            'speedOut': 200,
+            'overlayShow': false
+        });
+    });
+</script> 
+<script>
+    // Activate fancyBox
+    $(".fancybox")
+        .attr('rel', 'gallery')
+        .fancybox({
+            padding: 0
+        });
+
+ </script>
+       <script>
+           // Launch fancyBox on first element
+           $(".fancybox").eq(0).trigger('click');
+    </script>

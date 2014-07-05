@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "LogIn";
+    Layout = "~/Views/_MainLayout.cshtml";
+}
+@model RPOJECTEAD.Models.Customer
+<script>
+    $(function () {
+        
+    });
+</script>
+ @section tabs{
+     <div id="menu">
+		<ul>
+			<li><a href="/Home/Index">Home</a></li>
+			<li><a href="/Account/SignUp">SignUp</a></li>
+			<li><a href="/Account/LogIn">Login</a></li>
+            <li><a href="/Home/Gallery">Gallery</a></li>
+		</ul>
+	</div>
+ }
+<h2 style="margin-left: 10px;font-family: Calibri;color:#ff6a00">Login Info</h2>
+
+ @using (Html.BeginForm("LogIn1", "Account", FormMethod.Post))
+    {
+         <table style="width:100px ; margin-left: 20px" border="0" >
+           <tbody><tr style="height: 50px; margin-left: 20px">
+          <tr><td><p >@Html.LabelFor(m => m.Name)</p></td>
+              <td>  @Html.TextBoxFor(m => m.Name, new { id="Name"})
+           @Html.ValidationMessageFor(m => m.Name)</td></tr>
+
+            <tr><td><p >@Html.LabelFor(m => m.Password)</p></td>
+           <td> @Html.PasswordFor(m => m.Password, new { id="Password"})
+               @Html.ValidationMessageFor(m => m.Password)</td></tr>
+            <tr style="height: 30px">
+                <td colspan="3"><input value="login" style="height: 30px;width: 100px; background-color:#BBBBBB;margin-left: 150px;font-size: 24px color=#BBBBBB" type="submit">
+                </td>
+            </tr> 
+                       </tbody> </table>
+ }

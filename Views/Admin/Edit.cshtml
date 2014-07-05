@@ -1,0 +1,74 @@
+﻿@model RPOJECTEAD.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/MainLayout1.cshtml";
+}
+
+@using (Html.BeginForm())
+ 
+{
+     @Html.HiddenFor(model => model.PId)
+    @Html.HiddenFor(model => model.ImagePath)
+    <fieldset>
+        <legend>Product</legend>
+        <p><img src="~/Uploads/@ViewBag.X.ImagePath" alt="" width="15%" height="10%" style= "margin-left:30px"/> </p> 
+
+        <div class="editor-label" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <div class="editor-label" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.EditorFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+        <div class="editor-label" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.LabelFor(model => model.Category)
+        </div>
+        <div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.EditorFor(model => model.Category)
+            @Html.ValidationMessageFor(model => model.Category)
+        </div>
+
+        @*<div class="editor-label" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.LabelFor(model => model.Date)
+        </div>*@
+       <div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">Date</div>
+                <div><td><input name="Date" id="date" value="@ViewBag.X.Date" style="height: 25px;width: 100px;margin-left: 30px" type="text"><img src="/Images/cal.gif" onclick="javascript:NewCssCal('date')" style="cursor:pointer"/></td>
+                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="date" data-valmsg-replace="true"></span></span> </td>
+</div>
+        @*<div class="editor-field" style= "margin-left:30px; font-family:Arial; color:#000">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>*@
+
+       @* <div>
+            <input type="file" name="image" value="@ViewBag.X.ImagePath" />
+        </div>*@
+        <br/>
+        <p>
+            <input type="submit" value="Save" style= "margin-left:30px; font-family:Arial; color:#000"/>
+         @Html.ActionLink("Back to List", "Index")
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

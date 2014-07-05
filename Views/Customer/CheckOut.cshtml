@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "CheckOut";
+    Layout = "~/Views/_MainLayout.cshtml";
+}
+@model RPOJECTEAD.Models.Order
+<script>
+    $(function () {
+        
+    });
+</script>
+ @section tabs{
+     <div id="menu">
+		<ul>
+			<li><a href="/Customer/Index">Home</a></li>
+            <li><a href="/Customer/ViewCart">ViewCart</a></li>
+            <li><a href="/Customer/CheckOut">CheckOut</a></li>
+			<li><a href="/Customer/About">About Us</a></li>
+			<li><a href="/Customer/Contact">Contact Us</a></li>
+            <li><a href="/Customer/Gallery">Gallery</a></li>
+            <li><a href="/Account/LogOut">LogOut</a></li>
+
+		</ul>
+	</div>
+ }
+
+<div>
+    <div id="d1" style="float: left;margin-left:7px; border: 0px solid #BBBBBB;width: 60%">
+        <h3 style="color:#000;margin-left: 2% ;font-family: 'Comic Sans MS'; font-weight: bold">Products</h3>
+
+     <br /><h1>Your Bill</h1><br />
+<!--Displaying all the itens from database--> 
+ @foreach(var m in ViewBag.X){
+     
+           
+                    <span><a>Name : @m.Name</a></span><br />
+                     <span><a>Quantity : @m.Quantity</a></span><br />
+                    <span >Rs. @m.Amount </span><br />
+     <br />
+     <br />
+        }
+
+
+    <h3>Your Total:        @ViewBag.Y</h3>   <br />
+       <a href="https://www.paypal.com/cy"> <input type="submit" value="PayBill" style="margin-left: 10px;color: green;font-size: 16px"/></a> 
+</div> 
+</div> 
+  

@@ -1,0 +1,60 @@
+﻿@model RPOJECTEAD.Models.Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/MainLayout1.cshtml";
+}
+
+<div>
+    <h2 style="margin-left: 10px;font-family: Calibri;color:#ff6a00">Add Item</h2>
+    <h4 style="margin-left: 20px;color: green">Enter Detail Of an Item  </h4>
+        <form id="rgstrn" action="/Admin/Create1" method="post" style="height: auto;width:600px;border: 1px solid #BBBBBB;margin-left: 30px;margin-top: 30px" enctype="multipart/form-data">         
+        <table style="width:auto" border="0">
+            <tbody>
+                <tr style="height: 50px">
+                <td style="text-align: right;font-family:Calibri;font-size: 23px">Name</td>
+                <td><input name="name" style="height: 25px;width: 100px;margin-left: 10px" type="text"></td>
+                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="uname" data-valmsg-replace="true"></span></span> </td>
+            </tr>
+
+                <tr style="height: 50px">
+                <td style="text-align: right;font-family:Calibri;font-size: 23px">Price</td>
+                <td><input name="price" style="height: 25px;width: 100px;margin-left: 10px" type="text"></td>
+                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="price" data-valmsg-replace="true"></span></span> </td>
+            </tr>
+
+                <tr style="height: 50px">
+                <td style="text-align: right;font-family:Calibri;font-size: 23px">Quantity</td>
+                <td><input name="quant" style="height: 25px;width: 100px;margin-left: 10px" type="text"></td>
+                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="quant" data-valmsg-replace="true"></span></span> </td>
+            </tr>
+                
+                 <tr>
+                <td style="text-align: right;font-family:Calibri;font-size: 23px">Category</td>
+               <td><select value="category" name="cat">
+               <option value="children">Children</option>
+               <option value="Men">Men</option>
+               <option value="Women">Women</option>
+           </select></td></tr>
+
+                <tr style="height: 50px">
+                <td style="text-align: right;font-family:Calibri;font-size: 23px">Upload_Image</td>
+                <td><input name="file" style="height: 30px;width: 250px;margin-left: 10px" type="file"></td>
+                <td style="width: auto"><span style="font-family: Calibri; color: #218416; text-align: center"> <span class="field-validation-valid" data-valmsg-for="imga" data-valmsg-replace="true"></span></span> </td>
+            
+                </tr>
+
+            <tr style="height: 30px">
+                <td colspan="3"><input value="Add" style="height: 30px;width: 100px;margin-left: 150px;font-size: 24px color=#BBBBBB" type="submit">
+                    @Html.ActionLink("Back to List", "Index")
+                </td>
+                
+            </tr> <br/><br/>
+        </tbody></table>
+            <br />
+     </form>
+    </div> 
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
